@@ -1,0 +1,33 @@
+<img src="http://CountZ.com/cgi-bin/count.cgi?197992&863" height=12 width=50 border="0" alt="Number Of Hits">
+
+Copy the code below and, using a text editor, incorporate it into your web page. Do NOT use a WYSIWYG editor, word processor, Microsoft FrontPage or Netscape Composer to manage this code. Those programs will modify or corrupt it and your counter will not work properly. ONLY use a text editor or other program in text-only mode. 
+<!-- Start of TheCounter.com Code -->
+<SCRIPT TYPE="text/javascript" LANGUAGE="javascript">
+s="na";c="na";j="na";f=""+escape(document.referrer)
+</SCRIPT>
+<SCRIPT TYPE="text/javascript" LANGUAGE="javascript1.2">
+s=screen.width;v=navigator.appName
+if (v != "Netscape") {c=screen.colorDepth}
+else {c=screen.pixelDepth}
+j=navigator.javaEnabled()
+</SCRIPT>
+<SCRIPT TYPE="text/javascript" LANGUAGE="javascript">
+function pr(n) {document.write(n,"\n");}
+NS2Ch=0
+if (navigator.appName == "Netscape" &&
+navigator.appVersion.charAt(0) == "2") {NS2Ch=1}
+if (NS2Ch == 0) {
+r="&size="+s+"&colors="+c+"&referer="+f+"&java="+j+""
+pr("<A HREF=\"http://www.TheCounter.com\" TARGET=\"_top\"><IMG"+
+" BORDER=0 SRC=\"http://c3.thecounter.com/id=2446077"+r+"\"><\/A>")}
+</SCRIPT>
+<IMG
+SRC="http://c1.thecounter.com/id=135919" ALT="TC" BORDER=0>
+<NOSCRIPT><A HREF="http://www.TheCounter.com" TARGET="_top">
+
+<IMG
+SRC="http://c3.thecounter.com/id=2446077" ALT="TC" BORDER=0></A>
+</NOSCRIPT>
+
+
+<!-- End of TheCounter.com Code -->

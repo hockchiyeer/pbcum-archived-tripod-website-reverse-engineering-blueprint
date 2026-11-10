@@ -1,0 +1,9 @@
+BODY{scrollbar-face-color:#6699FF;scrollbar-shadow-color:ffffff;scrollbar-highlight-color:ffffff;scrollbar-3dlight-color:#6699FF;scrollbar-darkshadow-color:ffffff;scrollbar-track-color:ffffff;scrollbar-arrow-color:ffff00;}
+a:link { text-decoration: none; color: #ffffff}
+a:visited {  font-style: bold; font-weight: normal; text-decoration: none; color: #ffffff}
+a:active {  font-style: bold; font-weight: normal; text-decoration: none; color: #ffff00}
+a:hover {  font-style: normal; font-weight: normal; font-variant: normal; text-decoration: underline; color: #CCFF00}
+a.new:link { text-decoration: none; color: #ff9900}
+a.new:visited {  font-style: bold; font-weight: normal; text-decoration: underline; color: #ff9900}
+a.new:active {  font-style: bold; font-weight: normal; text-decoration: none; color: #ff9900}
+a.new:hover {  font-style: normal; font-weight: normal; font-variant: normal; text-decoration: none; color: #0000ff}

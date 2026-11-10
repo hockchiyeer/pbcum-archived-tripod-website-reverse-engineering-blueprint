@@ -1,0 +1,6 @@
+{
+  "name": "PBCUM Archive & Reverse Engineering Blueprint",
+  "description": "Complete reverse engineering, architectural blueprint, visual layout, folder structure, and interactive modernized replica of Universiti Malaya Chinese Language Society (PBCUM 马大华文学会).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

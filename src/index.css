@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Marquee keyframes and classes mirroring PBCUM's assets/style.css */
+  @keyframes mq-up {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+
+  @keyframes mq-scroll-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes mq-bounce-slide {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(30px);
+    }
+  }
+}
+
+/* Authentic PBCUM Web 1.0 CSS and Modern Rebuild Utilities */
+.mq {
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.mq-up {
+  white-space: normal;
+}
+
+.mq-up .mq-in {
+  display: block;
+  animation: mq-up var(--d, 40s) linear infinite;
+}
+
+.mq-up:hover .mq-in,
+.mq-scroll:hover .mq-in,
+.mq-alt:hover .mq-in {
+  animation-play-state: paused;
+}
+
+.mq-alt .mq-in {
+  display: inline-block;
+  animation: mq-scroll-left var(--d, 10s) linear infinite;
+}
+
+.mq-scroll .mq-in {
+  display: inline-block;
+  animation: mq-scroll-left var(--d, 12s) linear infinite;
+}
+
+.mq-slide .mq-in {
+  display: inline-block;
+  animation: mq-bounce-slide var(--d, 3s) ease-in-out infinite;
+}
+
+/* Vintage table borders and collapse */
+.retro-table {
+  border-collapse: collapse;
+}
+
+.retro-table td, .retro-table th {
+  border: 1px solid #7f9db9;
+}
+
+/* Classic colorbar gradient */
+.pbcum-colorbar {
+  background: linear-gradient(90deg, 
+    #ff0000 0%, #ff7f00 14%, #ffff00 28%, #00ff00 42%, 
+    #00ffff 57%, #0000ff 71%, #8b00ff 85%, #ff007f 100%);
+  height: 2px;
+}
+
+/* Web 1.0 font stack */
+.font-pbcum-retro {
+  font-family: "SimSun", "Songti SC", "STSong", "Songti", "NSimSun", "PMingLiU", serif, sans-serif;
+}
+
+/* Custom scrollbar for blueprint panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 127, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 127, 0.6);
+}
