@@ -14,7 +14,7 @@ function regenerate()
 }
 
 function setScroller( speed ) {
-  document.getElementById("marq1").scrollAmount = speed; 
+  document.marquee.all.marq1.scrollAmount = speed; 
 }  
 
 function regenerate2()

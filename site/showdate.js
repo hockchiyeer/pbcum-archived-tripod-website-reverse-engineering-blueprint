@@ -4,13 +4,13 @@ function CreateArray(n) {this.length = n
 return this } 
 
 day = new CreateArray(7)
-day[0]="æ˜ŸæœŸæ—¥"
-day[1]="æ˜ŸæœŸä¸€"
-day[2]="æ˜ŸæœŸäºŒ"
-day[3]="æ˜ŸæœŸä¸‰"
-day[4]="æ˜ŸæœŸå››"
-day[5]="æ˜ŸæœŸäº”"
-day[6]="æ˜ŸæœŸå…­" 
+day[0]="ĞÇÆÚÈÕ"
+day[1]="ĞÇÆÚÒ»"
+day[2]="ĞÇÆÚ¶ş"
+day[3]="ĞÇÆÚÈı"
+day[4]="ĞÇÆÚËÄ"
+day[5]="ĞÇÆÚÎå"
+day[6]="ĞÇÆÚÁù" 
  
 month = new CreateArray(12)
 month[0]="-1-"
@@ -38,5 +38,5 @@ myDate = new String(today.getDate())
 mySuffix = modifier[today.getDate()]
 myYear = new String(today.getFullYear())
 // -->
-document.write("æœ€åæ›´æ–°æ—¥æœŸï¼š",today.getDate(),mySuffix,month[today.getMonth()],myYear," ")                   
+document.write("×îºó¸üĞÂÈÕÆÚ£º",today.getDate(),mySuffix,month[today.getMonth()],myYear," ")                   
            

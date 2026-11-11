@@ -1,252 +1,145 @@
-# PBCUM Archive & Reverse-Engineering Blueprint
+# PBCUM 马大华文学会 — Archived Website: Reverse-Engineering Blueprint
 
-An interactive, modern reconstruction and archival browser for the **Universiti Malaya Chinese Language Society** — *Persatuan Bahasa Cina Universiti Malaya* (PBCUM, 马大华文学会).
+An interactive blueprint and modern React rebuild of the **Persatuan Bahasa Cina Universiti Malaya (PBCUM / 马大华文学会)**
+website as archived in January 2004 (a hand-built, table-based HTML site: 112 pages, 289 files, GB2312/Big5 text).
 
-The project brings together a browsable reconstruction of the society's historical website, a structured archive of its pages and media, and an interactive blueprint for exploring the original site's information architecture.
+The app has two jobs, and keeps them strictly separate:
 
-## Overview
+1. **Serve the original archive untouched** — every original page and asset at its original URL.
+2. **Run and explain it** — a compatibility renderer that runs each archived page from its own markup in a modern
+   browser (same text, images, navigation and pop-ups), plus a file/folder inspector and a layout/CSS specification.
 
-This repository contains two related deliverables:
+> **Parity rule:** nothing shown as site content is written by hand. Every page is rendered from its archived file;
+> the file tree is generated from the real folders; `npm run verify` proves `site/` is the untouched original.
 
-1. **Interactive reconstructed website** — a React application that presents selected PBCUM historical content in a navigable, modern interface.
-2. **Historical website archive and reverse-engineering reference** — preserved HTML pages, scripts, stylesheets, images, and a structured description of the legacy site's folders, page roles, visual conventions, and components.
+---
 
-The archive and reconstruction focus primarily on material from **1986–2004**, as represented in the supplied source collection. Historical descriptions and dates should be treated as archival content rather than independently verified current information.
+## Quick start
 
-## Features
+**Prerequisites:** Node.js 20+
 
-### Reconstructed website
+```bash
+npm install --legacy-peer-deps   # the pinned Vite/plugin versions have a peer-dependency conflict
+npm run dev                      # http://localhost:3000
+```
 
-- Browse 14 reconstructed sections, including:
-  - Home
-  - Society philosophy and guiding principles
-  - Society history and term-by-term history
-  - Organisation structure and EXCO hierarchy
-  - EXCO rosters from multiple terms
-  - Activity units and administrative divisions
-  - Special activities and reports
-  - Notices
-  - Society anthem
-  - Society bulletin
-  - Historical literature and documents
-  - Historical photographs
-- Navigate between sections using the site navigation and page selector.
-- Use the quick-search overlay to find sections by keyword.
-- Inspect EXCO and organisational information through interactive content panels.
-- View historical organisational diagrams in their original image-based style or as a modern vector-style layout.
-- Open image, article, member, activity, and document details where supported by the interface.
-- Switch between the reconstructed site, the blueprint inspector, and a side-by-side comparison view.
+Optional: copy `.env.example` to `.env.local` and set `GEMINI_API_KEY` if you use the AI Studio features.
 
-### Reverse-engineering blueprint
-
-The blueprint inspector provides a structured view of the legacy site's architecture and design:
-
-- Expandable folder and file tree
-- Searchable file/path descriptions
-- Explanations of original file roles and corresponding modern components
-- Visual layout and navigation analysis
-- CSS/framework comparison
-- Asset inventory and component-reconstruction reference
-
-### Interactive elements
-
-The application includes interactive organisation-chart controls and a browser-based society-anthem synthesizer. Guestbook messages are held in application state for the current session; this repository does not provide a database-backed guestbook service.
-
-## Technology stack
-
-| Area | Technology |
+| Command | What it does |
 |---|---|
-| UI framework | React 19 |
-| Language | TypeScript |
-| Build and development server | Vite 8 |
-| Styling | Tailwind CSS 4 |
-| Icons | Lucide React |
-| Animation and motion | Motion |
-| Audio interaction | Web Audio API (browser) |
-| Additional package dependencies | Express, dotenv, Google GenAI SDK |
+| `npm run dev` | Dev server on port 3000 (regenerates the manifest first) |
+| `npm run build` | Production build to `dist/` (regenerates the manifest first) |
+| `npm run preview` | Serve `dist/` locally |
+| `npm run manifest` | Regenerate `src/data/archiveManifest.generated.json` from `site/` |
+| `npm run verify` | Parity check (see below) — run after `npm run build` |
+| `npm run lint` | Type-check (`tsc --noEmit`) |
 
-The current application entry point is `src/main.tsx`. The package manifest includes Express, dotenv, and the Google GenAI SDK, but the inspected React application does not currently import or call those services. No server-side API workflow is required to run the reconstructed site as supplied.
+## What you get in the app
+
+| Area | Purpose |
+|---|---|
+| **全站浏览 (Site browse)** | The website itself: all 112 archived pages, reachable from the page picker, quick search or any link. |
+| **兼容渲染 / 原始文件** | *Compat* runs each page from its own original markup with the IE-only scripts patched at run time; *Raw* shows the untouched file. |
+| **架构检查器 (Blueprint inspector)** | The real folder/file tree (289 files) with notes, sizes, previews and the layout/colour specification. |
+| **分屏对照 (Split view)** | Blueprint and site side by side. |
+
+Nothing on a page is written by hand: text, images, link targets, pop-ups and effects all come from the archived file.
 
 ## Repository layout
 
-```text
-.
-├── index.html                 # Vite HTML entry point
-├── package.json               # Scripts and dependencies
-├── bun.lock                   # Bun dependency lockfile
-├── tsconfig.json              # TypeScript configuration
-├── vite.config.ts             # Vite configuration
-├── .env.example               # Example environment variables
-├── public/                    # Static assets served by Vite
-│   ├── image/                 # Historical photographs and graphics
-│   ├── structure/             # Organisation-chart graphics
-│   ├── activity/              # Activity-related assets
-│   ├── Tripod_files/          # Legacy hosting assets
-│   └── assets/                # Additional bundled assets
-├── src/
-│   ├── main.tsx               # React application bootstrap
-│   ├── App.tsx                # Main shell, navigation, and view modes
-│   ├── index.css              # Global styles and Tailwind integration
-│   ├── data/
-│   │   └── pbcumData.ts       # Structured historical content and file tree
-│   └── components/
-│       ├── PbcumSiteViewer.tsx
-│       ├── BlueprintInspector.tsx
-│       ├── OrgChartInteractive.tsx
-│       └── HeaderDecorations.tsx
-├── pbcum_website/             # Preserved legacy website source/archive
-└── site/                      # Additional preserved legacy-site copy
+```
+site/                 The original archive — byte-identical to the received pbcum_website.zip (289 files)
+  *.htm               112 pages (root pages + activity/, bulletin/, wenxian/, philosophy/, unit/,
+                      bianlunzu/, poster/, former_exco/)
+  image/ structure/ Tripod_files/ …   161 images, 11 scripts, 2 stylesheets, 2 .doc files
+src/
+  App.tsx             App shell: mode switch, page picker, quick search
+  components/
+    PbcumSiteViewer.tsx     The website: page history + back button, compat/raw toggle
+    LegacyFrame.tsx         Runs an archived page in quirks mode; handles links, pop-ups, anchors, height
+    ArchiveFrame.tsx        Untouched file in a plain frame (raw view, inspector previews)
+    BlueprintInspector.tsx  File tree, notes, previews, layout/colour specification
+  lib/legacyDocument.ts     Builds the runnable document: charset decode, IE-only patches, inlined scripts, <base>
+  data/
+    archiveManifest.generated.json   GENERATED from site/ (files, sizes, page titles, folder counts)
+    archiveTree.ts                   Builds the in-app file tree from the manifest
+    archiveNotes.ts                  Reverse-engineering notes keyed by real file path
+    pbcumData.ts                     Layout/palette specification and component notes
+scripts/
+  build-archive-manifest.mjs         Generates the manifest (`--check` fails if it is stale)
+  verify-parity.mjs                  Parity check
+  original-archive.sha256.json       SHA-256 of every original file
+vite.config.ts        publicDir = site/, plus the charset plugin below
 ```
 
-`public/` contains the static files used by the running Vite application. The `pbcum_website/` and `site/` directories preserve the broader legacy website material for reference and reverse engineering; they are not the React application's entry point.
+## How parity is enforced
 
-## Requirements
+- **`site/` is the source of truth.** Vite serves it at the web root (`publicDir: 'site'`), so `/index.htm`,
+  `/activity/13thquanwen.htm`, `/image/animate.gif`, … all resolve exactly as in the original. There is no second
+  `public/` copy.
+- **Untouched bytes.** The original pages are GB2312/Big5. Vite would label them UTF-8 and garble them, so
+  `vite.config.ts` includes a small plugin that serves each page with the charset it declares in its own `<meta>`
+  (dev and preview). When hosting `dist/` elsewhere, serve the `.htm` files the same way, or send no charset and let the
+  `<meta>` decide.
+- **Generated, not hand-written.** The file tree, counts, and page list come from `npm run manifest`, so they cannot
+  drift from the real folders.
+- **`npm run verify`** checks that:
+  1. every file in `site/` matches the SHA-256 in `scripts/original-archive.sha256.json` (no edits, no extras);
+  2. the manifest is current;
+  3. `dist/` contains all 289 archive files byte-for-byte.
 
-- Node.js compatible with the installed Vite version (use a current supported LTS release).
-- npm, or Bun if you prefer the included `bun.lock`.
+### How a page is rendered (compat mode)
 
-Check your installed versions:
+`LegacyFrame` fetches the page from `/…` (original bytes, original charset), then:
 
-```bash
-node --version
-npm --version
-```
+1. patches only the IE-only constructs that stop the original scripts in modern browsers
+   (`document.all`, `document.marquee.all.marq1`, `document.all.neonlight`, `event.fromElement/toElement`);
+2. inlines the page's `<script src>` files (decoded with the page's charset) and adds an absolute `<base>`;
+3. loads the result as a `blob:` document. It has no DOCTYPE, so the browser lays it out in **quirks mode** exactly
+   like the original (an `srcdoc` iframe would force standards mode and change the layout).
 
-## Getting started
+Behaviour is the original's: `window.open` pop-ups open real windows at their original sizes (580×450 credit page,
+550×500 committee-member pages), `target="notice"/"main"/…` links open their named windows, `<marquee>` news ticker,
+hover cells, org-chart rollovers, the neon title and the "past committees" dropdown all work. Same-window links to
+archive pages (including `#anchors` such as `/unit2.htm#WaiWuChu`) navigate inside the app, with a back button.
+External same-window links open in a new tab so they cannot replace the app.
 
-### 1. Extract the repository
+### How parity was checked
 
-Extract the ZIP archive, then open a terminal in the project root — the directory containing `package.json`.
+- Text and images: for all 112 pages the compat render was compared with the raw file. The only differences are
+  script-generated content (home-page news, dates) and images that are already broken in the original
+  (`marquee_function.htm`, the saved Tripod page).
+- Navigation: every distinct link on every page (about 900) was clicked in a browser and compared with what the markup
+  specifies — pop-up URL and window size, named window, in-app navigation, in-page anchor.
 
-### 2. Install dependencies
+### Known limits
 
-Using npm:
+- Links from archived pages to external sites (the Tripod debate site, clsm.org) are most likely dead.
+- `unit/wenhua/shufa.htm` links to `chayi.htm` and `zhuanke.htm`, which were never in the archive.
+- The CountZ hit counter in `site/counter` is an inert `<img>` tag.
+- The saved Tripod page and `marquee_function.htm` reference images that were never in the archive.
+- Pages are laid out at their original fixed widths (they were never responsive); narrow screens scroll sideways.
 
-```bash
-npm install
-```
+## Design reference (from the reverse-engineering)
 
-Or using Bun:
+- **Layout:** nested `<table>` pages, no CSS framework. Home card 680 px; inner pages 700 px (+40 px padding) with a
+  150 px blue sidebar. Fonts: SimSun/宋体 for Chinese text.
+- **Palette:** page `#e8f2fd`, accent `#6699ff`, headings `#00007f`, cream `#ffffcc`, hover lime `#b1e664`,
+  frame `#9933ff` / cyan `#00ffff`.
+- **Behaviour:** `<marquee>` tickers, `inCell/outCell` hover cells, Macromedia `MM_swapImage` rollovers on the
+  organisation chart, a "jump to past committee" dropdown, and `window.open` pop-ups — all preserved by compat mode.
 
-```bash
-bun install
-```
+## Updating or extending
 
-### 3. Start the development server
+- **Archive changed?** Replace files in `site/`, then run `npm run manifest`. If the change is intentional, regenerate
+  `scripts/original-archive.sha256.json` (hash each file with SHA-256) so `verify` reflects the new reference.
+- **New IE-only construct in a page?** Add its replacement to `patchLegacyScript` in `src/lib/legacyDocument.ts`.
+- **Do not hand-edit** `archiveManifest.generated.json`.
 
-```bash
-npm run dev
-```
+## Provenance
 
-Vite is configured to listen on port **3000** and bind to `0.0.0.0`. Open:
+The archive arrived as a zip attached to a 2004 committee e-mail ("PBCUM 16th Exco"), which says to unzip to a drive
+root and open `index.htm`. The society's motto on the home page is 扎实为经，回馈为纬 ("Solidity is the warp,
+feedback the weft"). The last-updated date on the home page is 18-1-2004.
 
-```text
-http://localhost:3000
-```
-
-Stop the development server with `Ctrl+C`.
-
-## Available scripts
-
-| Command | Description |
-|---|---|
-| `npm run dev` | Start the Vite development server on port 3000 |
-| `npm run build` | Create a production build in `dist/` |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run TypeScript checking with `tsc --noEmit` |
-| `npm run clean` | Remove `dist/` and `server.js` |
-
-For a typical verification run:
-
-```bash
-npm run lint
-npm run build
-```
-
-To serve the production build locally:
-
-```bash
-npm run preview
-```
-
-## Using the application
-
-The top-level interface offers three main working modes:
-
-- **Site view** — browse the reconstructed PBCUM website.
-- **Blueprint view** — inspect the reverse-engineered file structure, layout conventions, navigation, assets, and component mapping.
-- **Split view** — compare the reconstructed website and blueprint inspector side by side.
-
-Within the site view, use the navigation controls, quick search, or page selector to move between sections. The organisation chart supports selecting nodes to inspect the corresponding descriptions and, where configured, navigate to related sections.
-
-## Content and asset organisation
-
-The structured historical content used by the React interface is maintained primarily in:
-
-```text
-src/data/pbcumData.ts
-```
-
-This file contains typed datasets for items such as:
-
-- Legacy file and folder descriptions
-- EXCO members and term rosters
-- Activity units
-- Historical chapters and term histories
-- Society anthem content
-- Bulletin articles
-- Literature and archival documents
-- Special activities
-
-Static images and other browser-served resources are placed under `public/`. Components refer to these resources using root-relative paths such as `/image/...` and `/structure/...`.
-
-When adding or replacing an asset, keep its path and filename consistent with the references in the source code. If you change an asset path, update every corresponding component reference.
-
-## Configuration and environment variables
-
-An `.env.example` file is included with placeholders for:
-
-- `GEMINI_API_KEY`
-- `APP_URL`
-
-These values are associated with the supplied AI Studio-oriented project metadata. **They are not currently required by the inspected frontend implementation**: the React source does not presently reference `GEMINI_API_KEY` or make Gemini API calls.
-
-Do not commit real API keys or secrets. If AI or server-side functionality is added in the future, keep credentials on the server and document the required configuration and deployment steps at that time.
-
-## Build and deployment
-
-Create the production bundle:
-
-```bash
-npm run build
-```
-
-The generated static site is written to:
-
-```text
-dist/
-```
-
-The output can be deployed to a static hosting provider that supports single-page applications. Configure the host to serve `index.html` for application routes if deep links are introduced.
-
-The development server's `--host 0.0.0.0` option makes it listen on available network interfaces; production hosting and network exposure should be configured separately.
-
-## Known scope and limitations
-
-- This is an archival reconstruction, not an official or live PBCUM website.
-- The React interface reconstructs selected sections and interactions; it does not guarantee that every legacy HTML page behaves exactly as it did on its original hosting platform.
-- The preserved legacy files may contain obsolete HTML, scripts, hosting-specific paths, and third-party resources that are not needed by the modern React application.
-- Some content and interface details are based on the supplied archive and the project's reverse-engineered data model. Verify historical claims against primary records before relying on them for formal research or publication.
-- Interactive guestbook messages are in-memory demo content and are not saved to a persistent service.
-- No database, authentication system, or production API backend is configured in the supplied application.
-
-## Contributing and maintenance
-
-When extending the reconstruction:
-
-1. Keep historical source material in the archive directories and avoid silently overwriting original files.
-2. Add or revise typed content in `src/data/pbcumData.ts`.
-3. Implement interface changes in the relevant component under `src/components/`.
-4. Place browser-served assets under `public/` and preserve referenced paths.
-5. Run `npm run lint` and `npm run build` before submitting changes.
-6. Clearly distinguish source-derived facts from editorial interpretation or reconstructed behaviour.
+View the original AI Studio app: https://ai.studio/apps/9aadfb13-edc8-489c-9410-4960514c5bd1

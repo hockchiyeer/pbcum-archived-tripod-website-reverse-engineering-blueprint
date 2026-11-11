@@ -298,8 +298,7 @@ export const BlueprintInspector: React.FC<{
                   {selectedFile.name.endsWith('.htm') && onOpenFileInPreview && (
                     <button
                       onClick={() => {
-                        const pageKey = selectedFile.name.replace('.htm', '');
-                        onOpenFileInPreview(pageKey);
+                        onOpenFileInPreview(selectedFile.path);   // original URL path; App maps core pages to their replica
                       }}
                       className="px-3 py-1.5 rounded bg-blue-800 text-white text-xs font-medium hover:bg-blue-900 flex items-center gap-1.5 transition-colors"
                     >
@@ -613,56 +612,57 @@ td.navcell {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
               {[
                 // Branding
-                { cat: 'branding', src: '/image/Pbcum_logo.gif', name: 'Pbcum_logo.gif', dims: '60x75 px', size: '12 KB', role: '官方会徽' },
-                { cat: 'branding', src: '/image/flybird.gif', name: 'flybird.gif', dims: '520x30 px', size: '6.9 KB', role: '飞鸟动画横幅' },
-                { cat: 'branding', src: '/image/animate.gif', name: 'animate.gif', dims: '300x100 px', size: '402 KB', role: '欢迎动画(402KB)' },
-                { cat: 'branding', src: '/image/colorbar.gif', name: 'colorbar.gif', dims: '520x1 px', size: '4.5 KB', role: '彩条分割线' },
-                { cat: 'branding', src: '/image/zhashi.jpg', name: 'zhashi.jpg', dims: '240x180 px', size: '27.5 KB', role: '扎实为经拓印' },
-                { cat: 'branding', src: '/image/pbcum.jpg', name: 'pbcum.jpg', dims: '300x220 px', size: '16 KB', role: '创会历史文献' },
+                { cat: 'branding', src: '/image/Pbcum_logo.gif', name: 'Pbcum_logo.gif', dims: '120x150 px', size: '11.8 KB', role: '官方会徽' },
+                { cat: 'branding', src: '/image/flybird.gif', name: 'flybird.gif', dims: '604x30 px', size: '6.7 KB', role: '飞鸟动画横幅' },
+                { cat: 'branding', src: '/image/animate.gif', name: 'animate.gif', dims: '300x100 px', size: '392.9 KB', role: '欢迎动画(402KB)' },
+                { cat: 'branding', src: '/image/colorbar.gif', name: 'colorbar.gif', dims: '600x1 px', size: '4.4 KB', role: '彩条分割线' },
+                { cat: 'branding', src: '/image/zhashi.jpg', name: 'zhashi.jpg', dims: '372x249 px', size: '26.8 KB', role: '扎实为经拓印' },
+                { cat: 'branding', src: '/image/pbcum.jpg', name: 'pbcum.jpg', dims: '232x36 px', size: '15.6 KB', role: '创会历史文献' },
 
                 // History
-                { cat: 'history', src: '/image/historical_moment.jpg', name: 'historical_moment.jpg', dims: '400x266 px', size: '29.5 KB', role: '1986宣布成立记者招待会' },
-                { cat: 'history', src: '/image/1stAGM.jpg', name: '1stAGM.jpg', dims: '400x272 px', size: '37.1 KB', role: '1987首届会员大会现场' },
-                { cat: 'history', src: '/image/2nd_ChouWei.jpg', name: '2nd_ChouWei.jpg', dims: '380x250 px', size: '33.9 KB', role: '1985第二届筹委会执委' },
-                { cat: 'history', src: '/image/1stQuanBian.jpg', name: '1stQuanBian.jpg', dims: '380x260 px', size: '24.7 KB', role: '1988第一届全辩破土' },
-                { cat: 'history', src: '/image/14.jpg', name: '14.jpg', dims: '240x180 px', size: '8.5 KB', role: '第十四届执委会剪影' },
-                { cat: 'history', src: '/image/16th_1.gif', name: '16th_1.gif', dims: '360x240 px', size: '70.8 KB', role: '第十六届代表合影' },
-                { cat: 'history', src: '/image/history/1.jpg', name: 'history/1.jpg', dims: '400x280 px', size: '32 KB', role: '第一届复办大会' },
-                { cat: 'history', src: '/image/history/2.jpg', name: 'history/2.jpg', dims: '400x280 px', size: '28 KB', role: '1974学潮走上街头' },
-                { cat: 'history', src: '/image/history/4.jpg', name: 'history/4.jpg', dims: '400x280 px', size: '35 KB', role: '呈交复办申请信' },
-                { cat: 'history', src: '/image/history/6.jpg', name: 'history/6.jpg', dims: '400x280 px', size: '30 KB', role: '跨族群万人签名' },
-                { cat: 'history', src: '/image/history/8.jpg', name: 'history/8.jpg', dims: '400x280 px', size: '31 KB', role: '灯笼之夜中秋晚会' },
-                { cat: 'history', src: '/image/history/12.jpg', name: 'history/12.jpg', dims: '400x280 px', size: '36 KB', role: '12年奋斗圆满成立' },
+                { cat: 'history', src: '/image/historical_moment.jpg', name: 'historical_moment.jpg', dims: '400x266 px', size: '28.8 KB', role: '1986宣布成立记者招待会' },
+                { cat: 'history', src: '/image/1stAGM.jpg', name: '1stAGM.jpg', dims: '400x272 px', size: '36.3 KB', role: '1987首届会员大会现场' },
+                { cat: 'history', src: '/image/2nd_ChouWei.jpg', name: '2nd_ChouWei.jpg', dims: '400x288 px', size: '33.1 KB', role: '1985第二届筹委会执委' },
+                { cat: 'history', src: '/image/1stQuanBian.jpg', name: '1stQuanBian.jpg', dims: '400x282 px', size: '24.1 KB', role: '1988第一届全辩破土' },
+                { cat: 'history', src: '/image/14.jpg', name: '14.jpg', dims: '300x212 px', size: '8.3 KB', role: '第十四届执委会剪影' },
+                { cat: 'history', src: '/image/16th_1.gif', name: '16th_1.gif', dims: '400x282 px', size: '69.1 KB', role: '第十六届代表合影' },
+                { cat: 'history', src: '/image/history/1.jpg', name: 'history/1.jpg', dims: '300x216 px', size: '11.6 KB', role: '第一届复办大会' },
+                { cat: 'history', src: '/image/history/2.jpg', name: 'history/2.jpg', dims: '300x200 px', size: '9.5 KB', role: '1974学潮走上街头' },
+                { cat: 'history', src: '/image/history/4.jpg', name: 'history/4.jpg', dims: '300x179 px', size: '6.1 KB', role: '呈交复办申请信' },
+                { cat: 'history', src: '/image/history/6.jpg', name: 'history/6.jpg', dims: '300x187 px', size: '10.9 KB', role: '跨族群万人签名' },
+                { cat: 'history', src: '/image/history/8.jpg', name: 'history/8.jpg', dims: '300x238 px', size: '11.0 KB', role: '灯笼之夜中秋晚会' },
+                { cat: 'history', src: '/image/history/12.jpg', name: 'history/12.jpg', dims: '300x206 px', size: '7.6 KB', role: '12年奋斗圆满成立' },
 
                 // Structure
-                { cat: 'structure', src: '/image/structureme.gif', name: 'structureme.gif', dims: '442x454 px', size: '4.5 KB', role: '组织架构交互图' },
-                { cat: 'structure', src: '/image/structure.gif', name: 'structure.gif', dims: '400x300 px', size: '3.8 KB', role: '架构概览图' },
-                { cat: 'structure', src: '/structure/Advisor.gif', name: 'Advisor.gif', dims: '80x42 px', size: '1.2 KB', role: '顾问老师按键' },
-                { cat: 'structure', src: '/structure/Pbcum.gif', name: 'Pbcum.gif', dims: '80x42 px', size: '1.2 KB', role: '执委会按键' },
-                { cat: 'structure', src: '/structure/ChunJie.gif', name: 'ChunJie.gif', dims: '80x42 px', size: '1.2 KB', role: '新春晚会按键' },
-                { cat: 'structure', src: '/structure/QuanBian.gif', name: 'QuanBian.gif', dims: '80x42 px', size: '1.2 KB', role: '全辩筹委会按键' },
-                { cat: 'structure', src: '/structure/QuanZhong.gif', name: 'QuanZhong.gif', dims: '80x42 px', size: '1.2 KB', role: '全中筹委会按键' },
-                { cat: 'structure', src: '/structure/Wenhua.gif', name: 'Wenhua.gif', dims: '80x42 px', size: '1.2 KB', role: '文化组按键' },
-                { cat: 'structure', src: '/structure/BianLun.gif', name: 'BianLun.gif', dims: '80x42 px', size: '1.2 KB', role: '辩论组按键' },
-                { cat: 'structure', src: '/structure/ShengLe.gif', name: 'ShengLe.gif', dims: '80x42 px', size: '1.2 KB', role: '声乐组按键' },
-                { cat: 'structure', src: '/structure/XiJu.gif', name: 'XiJu.gif', dims: '80x42 px', size: '1.2 KB', role: '戏剧组按键' },
-                { cat: 'structure', src: '/structure/BiDao.gif', name: 'BiDao.gif', dims: '80x42 px', size: '1.2 KB', role: '笔导组按键' },
+                { cat: 'structure', src: '/image/structureme.gif', name: 'structureme.gif', dims: '442x455 px', size: '4.4 KB', role: '组织架构交互图' },
+                { cat: 'structure', src: '/image/structure.gif', name: 'structure.gif', dims: '420x393 px', size: '3.7 KB', role: '架构概览图' },
+                { cat: 'structure', src: '/structure/AGM.gif', name: 'AGM.gif', dims: '98x39 px', size: '0.3 KB', role: '会员大会按键' },
+                { cat: 'structure', src: '/structure/ME.gif', name: 'ME.gif', dims: '98x39 px', size: '0.2 KB', role: '执委会按键' },
+                { cat: 'structure', src: '/structure/ZiXunWeiYuanHui.gif', name: 'ZiXunWeiYuanHui.gif', dims: '87x51 px', size: '0.4 KB', role: '咨询研究委员会按键' },
+                { cat: 'structure', src: '/structure/JiLuWeiYuanHui.gif', name: 'JiLuWeiYuanHui.gif', dims: '99x39 px', size: '0.3 KB', role: '纪律委员会按键' },
+                { cat: 'structure', src: '/structure/XueJiTuan.gif', name: 'XueJiTuan.gif', dims: '99x39 px', size: '0.3 KB', role: '学会记者团按键' },
+                { cat: 'structure', src: '/structure/WaiWuChu.gif', name: 'WaiWuChu.gif', dims: '87x39 px', size: '0.2 KB', role: '外务处按键' },
+                { cat: 'structure', src: '/structure/MiShuChu.gif', name: 'MiShuChu.gif', dims: '87x39 px', size: '0.3 KB', role: '秘书处按键' },
+                { cat: 'structure', src: '/structure/CaiWuChu.gif', name: 'CaiWuChu.gif', dims: '87x39 px', size: '0.3 KB', role: '财务处按键' },
+                { cat: 'structure', src: '/structure/unit.gif', name: 'unit.gif', dims: '111x39 px', size: '0.3 KB', role: '组 (例常活动)按键' },
+                { cat: 'structure', src: '/structure/ChouWeiHui.gif', name: 'ChouWeiHui.gif', dims: '135x39 px', size: '0.4 KB', role: '筹委会 (特别活动)按键' },
+                { cat: 'structure', src: '/structure/Advisor.gif', name: 'Advisor.gif', dims: '87x39 px', size: '0.2 KB', role: '顾问按键' },
 
                 // Activity
-                { cat: 'activity', src: '/image/13thQuanWen1.gif', name: '13thQuanWen1.gif', dims: '350x240 px', size: '54.6 KB', role: '第13届全国文学营' },
-                { cat: 'activity', src: '/image/2thQuanzhong1.gif', name: '2thQuanzhong1.gif', dims: '350x240 px', size: '55.8 KB', role: '第2届全中生活营' },
-                { cat: 'activity', src: '/image/8thQuanbian1.gif', name: '8thQuanbian1.gif', dims: '350x240 px', size: '65.9 KB', role: '第8届全辩赛场' },
-                { cat: 'activity', src: '/image/2002Dayao1.gif', name: '2002Dayao1.gif', dims: '350x240 px', size: '64.5 KB', role: '2002大药房义卖会' },
-                { cat: 'activity', src: '/image/2001FoodStall1.gif', name: '2001FoodStall1.gif', dims: '350x240 px', size: '48.3 KB', role: '2001毕业义卖小食摊' },
-                { cat: 'activity', src: '/image/2001JiaTingRi.gif', name: '2001JiaTingRi.gif', dims: '350x240 px', size: '69.2 KB', role: '2001执委会家庭日' },
+                { cat: 'activity', src: '/image/13thQuanWen1.gif', name: '13thQuanWen1.gif', dims: '400x225 px', size: '53.4 KB', role: '第13届全国文学营' },
+                { cat: 'activity', src: '/image/2thQuanzhong1.gif', name: '2thQuanzhong1.gif', dims: '400x246 px', size: '54.5 KB', role: '第2届全中生活营' },
+                { cat: 'activity', src: '/image/8thQuanbian1.gif', name: '8thQuanbian1.gif', dims: '400x304 px', size: '64.4 KB', role: '第8届全辩赛场' },
+                { cat: 'activity', src: '/image/2002Dayao1.gif', name: '2002Dayao1.gif', dims: '400x264 px', size: '63.1 KB', role: '2002大药房义卖会' },
+                { cat: 'activity', src: '/image/2001FoodStall1.gif', name: '2001FoodStall1.gif', dims: '400x301 px', size: '47.2 KB', role: '2001毕业义卖小食摊' },
+                { cat: 'activity', src: '/image/2001JiaTingRi.gif', name: '2001JiaTingRi.gif', dims: '400x297 px', size: '67.6 KB', role: '2001执委会家庭日' },
 
                 // Icons
-                { cat: 'icons', src: '/image/bullet.gif', name: 'bullet.gif', dims: '14x14 px', size: '1.0 KB', role: '蓝色项目圆点' },
-                { cat: 'icons', src: '/image/bullet1.gif', name: 'bullet1.gif', dims: '14x14 px', size: '0.9 KB', role: '绿色项目圆点' },
-                { cat: 'icons', src: '/image/red.gif', name: 'red.gif', dims: '14x14 px', size: '0.9 KB', role: '红色状态圆点' },
-                { cat: 'icons', src: '/image/top.gif', name: 'top.gif', dims: '40x14 px', size: '0.8 KB', role: 'Top 回顶图标' },
-                { cat: 'icons', src: '/image/back.gif', name: 'back.gif', dims: '40x14 px', size: '0.6 KB', role: 'Back 返回图标' },
-                { cat: 'icons', src: '/image/read_more.gif', name: 'read_more.gif', dims: '60x14 px', size: '0.4 KB', role: '全文链接按键' }
+                { cat: 'icons', src: '/image/bullet.gif', name: 'bullet.gif', dims: '18x18 px', size: '1.0 KB', role: '蓝色项目圆点' },
+                { cat: 'icons', src: '/image/bullet1.gif', name: 'bullet1.gif', dims: '18x18 px', size: '0.9 KB', role: '绿色项目圆点' },
+                { cat: 'icons', src: '/image/red.gif', name: 'red.gif', dims: '402x7 px', size: '0.9 KB', role: '红色状态圆点' },
+                { cat: 'icons', src: '/image/top.gif', name: 'top.gif', dims: '14x10 px', size: '0.8 KB', role: 'Top 回顶图标' },
+                { cat: 'icons', src: '/image/back.gif', name: 'back.gif', dims: '44x27 px', size: '0.5 KB', role: 'Back 返回图标' },
+                { cat: 'icons', src: '/image/read_more.gif', name: 'read_more.gif', dims: '66x29 px', size: '0.4 KB', role: '全文链接按键' }
               ]
                 .filter(a => assetCategory === 'all' || a.cat === assetCategory)
                 .map((asset, i) => (

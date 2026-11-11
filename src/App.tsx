@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ARCHIVE_PAGES } from './data/archiveTree';
 import { PbcumSiteViewer } from './components/PbcumSiteViewer';
 import { BlueprintInspector } from './components/BlueprintInspector';
 import { 
@@ -39,9 +40,22 @@ export default function App() {
     { id: 'photo', title: '学会掠影 (1986翁姑阿兹副校长宣布成立旧照)', category: '历史相片' }
   ];
 
+  // Every other page of the archive (98 more) is reachable too, verbatim, by its original URL path.
+  const corePaths = new Set(searchablePages.map(p => `/${p.id}.htm`));
+  const sectionLabel = (path: string) => (path.split('/').length > 2 ? path.split('/')[1] : '根目录');
+  const archiveSearchPages = ARCHIVE_PAGES
+    .filter(f => !corePaths.has(f.path))
+    .map(f => ({ id: f.path, title: `${f.path} (${f.title ?? ''})`, category: sectionLabel(f.path) }));
+  const allSearchablePages = [...searchablePages, ...archiveSearchPages];
+  /** '/philosophy.htm' -> 'philosophy' (has a replica); other archive paths are opened verbatim. */
+  const toPageId = (path: string) => {
+    const m = path.match(/^\/([A-Za-z0-9_]+)\.htm$/);
+    return m && searchablePages.some(p => p.id === m[1]) ? m[1] : path;
+  };
+
   const filteredPages = quickSearchQuery.trim() === '' 
-    ? searchablePages 
-    : searchablePages.filter(p => 
+    ? allSearchablePages 
+    : allSearchablePages.filter(p => 
         p.title.toLowerCase().includes(quickSearchQuery.toLowerCase()) ||
         p.category.toLowerCase().includes(quickSearchQuery.toLowerCase())
       );
@@ -159,6 +173,11 @@ export default function App() {
                   <option value="bulletin">bulletin.htm (学会会讯)</option>
                   <option value="wenxian">wenxian.htm (学会文献)</option>
                   <option value="photo">photo.htm (学会掠影)</option>
+                <optgroup label="其余原站页面 (Archive, verbatim)">
+                    {archiveSearchPages.map(p => (
+                      <option key={p.id} value={p.id}>{p.id}</option>
+                    ))}
+                  </optgroup>
                 </select>
               </div>
             )}
@@ -191,7 +210,7 @@ export default function App() {
             <div className="max-w-6xl mx-auto">
               <BlueprintInspector 
                 onOpenFileInPreview={(pageId) => {
-                  setActiveSitePage(pageId);
+                  setActiveSitePage(toPageId(pageId));
                   setAppMode('site');
                 }}
               />
@@ -219,7 +238,7 @@ export default function App() {
               {/* Right Column: Blueprint Inspector */}
               <div className="xl:col-span-6">
                 <BlueprintInspector 
-                  onOpenFileInPreview={(pageId) => setActiveSitePage(pageId)}
+                  onOpenFileInPreview={(pageId) => setActiveSitePage(toPageId(pageId))}
                 />
               </div>
             </div>

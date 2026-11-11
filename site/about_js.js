@@ -6,7 +6,7 @@ var marqueecontents = document.marquee.content.value;
 if (marqueecontents==""){marqueecontents = ""}
 //var marqueecontents='<P ALIGN="//eft">'
 
-if (true)
+if (document.all)
 document.write('<marquee id="marq1" direction="up" scrollAmount='+speed+' style="width:'+marqueewidth+';height:'+marqueeheight+'">'+marqueecontents+'</marquee>')
 
 function regenerate()
@@ -15,7 +15,7 @@ function regenerate()
 }
 
 function setScroller( speed ) {
-  document.getElementById("marq1").scrollAmount = speed; 
+  document.marquee.all.marq1.scrollAmount = speed; 
 }  
 
 function regenerate2()

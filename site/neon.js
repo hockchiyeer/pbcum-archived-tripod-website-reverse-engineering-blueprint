@@ -1,14 +1,14 @@
-var message="ä¸ ç­ çš„ ä¿¡ å¿µ"
+var message="²» Ãğ µÄ ĞÅ Äî"
 var neonbasecolor="#000000"
 var neontextcolor="#FFFF00"
 var flashspeed=2  //in milliseconds
 var n=0
-if (true){
+if (document.all){
 document.write('')
 for (m=0;m<message.length;m++)
 document.write('<span id="neonlight">'+message.charAt(m)+'</span>')
 document.write('')
-var tempref=document.querySelectorAll("[id=neonlight]")
+var tempref=document.all.neonlight
 }
 else
 document.write(message)
@@ -29,7 +29,7 @@ return
 }
 
 function beginneon(){
-if (true)
+if (document.all)
 flashing=setInterval("neon()",flashspeed)
 }
 beginneon()

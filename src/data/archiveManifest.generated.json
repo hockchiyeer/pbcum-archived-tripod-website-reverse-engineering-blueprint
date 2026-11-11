@@ -1,0 +1,1588 @@
+{
+ "generatedBy": "scripts/build-archive-manifest.mjs",
+ "root": {
+  "path": "/",
+  "fileCount": 289
+ },
+ "folders": {
+  "/activity": 20,
+  "/bianlunzu": 2,
+  "/bulletin": 14,
+  "/former_exco": 74,
+  "/former_exco/14th_exco": 3,
+  "/former_exco/15th_exco": 4,
+  "/former_exco/16th_exco": 4,
+  "/former_exco/17th_exco": 31,
+  "/former_exco/18th_exco": 28,
+  "/image": 55,
+  "/image/history": 12,
+  "/philosophy": 4,
+  "/poster": 20,
+  "/poster/quanzhong": 3,
+  "/structure": 27,
+  "/Tripod_files": 24,
+  "/Tripod_files/CAKH558B_files": 3,
+  "/unit": 3,
+  "/unit/wenhua": 1,
+  "/wenxian": 14
+ },
+ "files": [
+  {
+   "path": "/about_js.js",
+   "size": 1364,
+   "kind": "script"
+  },
+  {
+   "path": "/activity/13thquanwen.htm",
+   "size": 5930,
+   "kind": "page",
+   "title": "学会特别活动"
+  },
+  {
+   "path": "/activity/1stSing-Mal.GIF",
+   "size": 223231,
+   "kind": "image"
+  },
+  {
+   "path": "/activity/2thquanzhong.htm",
+   "size": 5052,
+   "kind": "page",
+   "title": "学会特别活动"
+  },
+  {
+   "path": "/activity/45.jpg",
+   "size": 47577,
+   "kind": "image"
+  },
+  {
+   "path": "/activity/8thquanbian.htm",
+   "size": 5626,
+   "kind": "page",
+   "title": "全国大专辩论会"
+  },
+  {
+   "path": "/activity/AGM2003.jpg",
+   "size": 48614,
+   "kind": "image"
+  },
+  {
+   "path": "/activity/dayao2002.htm",
+   "size": 4418,
+   "kind": "page",
+   "title": "学会特别活动"
+  },
+  {
+   "path": "/activity/db950001.JPG",
+   "size": 158487,
+   "kind": "image"
+  },
+  {
+   "path": "/activity/familygather2001.htm",
+   "size": 4996,
+   "kind": "page",
+   "title": "学会特别活动"
+  },
+  {
+   "path": "/activity/familygather2002.htm",
+   "size": 5152,
+   "kind": "page",
+   "title": "学会特别活动"
+  },
+  {
+   "path": "/activity/foodstall2001.htm",
+   "size": 4310,
+   "kind": "page",
+   "title": "学会特别活动"
+  },
+  {
+   "path": "/activity/jiatingri2002_alt.jpg",
+   "size": 1064355,
+   "kind": "image"
+  },
+  {
+   "path": "/activity/jiatingri2002.jpg",
+   "size": 66808,
+   "kind": "image"
+  },
+  {
+   "path": "/activity/lijiesaihui.htm",
+   "size": 12139,
+   "kind": "page",
+   "title": "全国大专辩论会"
+  },
+  {
+   "path": "/activity/peixunying2002.htm",
+   "size": 4513,
+   "kind": "page",
+   "title": "学会特别活动"
+  },
+  {
+   "path": "/activity/peixunying2002.jpg",
+   "size": 47628,
+   "kind": "image"
+  },
+  {
+   "path": "/activity/quanbianjiazhi.htm",
+   "size": 6178,
+   "kind": "page",
+   "title": "全国大专辩论会"
+  },
+  {
+   "path": "/activity/quanbianyuanqi.htm",
+   "size": 4667,
+   "kind": "page",
+   "title": "全国大专辩论会"
+  },
+  {
+   "path": "/activity/yingxinzhou2002.htm",
+   "size": 8155,
+   "kind": "page",
+   "title": "学会特别活动"
+  },
+  {
+   "path": "/activity/yinxinwanhui2002.jpg",
+   "size": 69399,
+   "kind": "image"
+  },
+  {
+   "path": "/activity.htm",
+   "size": 6086,
+   "kind": "page",
+   "title": "特别活动报告"
+  },
+  {
+   "path": "/bianlunzu/index.htm",
+   "size": 9566,
+   "kind": "page",
+   "title": "辩论组"
+  },
+  {
+   "path": "/bianlunzu/result.htm",
+   "size": 1953,
+   "kind": "page",
+   "title": "辩论组"
+  },
+  {
+   "path": "/bulletin/guangliang.htm",
+   "size": 15849,
+   "kind": "page",
+   "title": "手扎四篇 / 谢光亮"
+  },
+  {
+   "path": "/bulletin/guiting.htm",
+   "size": 6090,
+   "kind": "page",
+   "title": "大学生学习态度改良刍议 /"
+  },
+  {
+   "path": "/bulletin/jiannan.htm",
+   "size": 6700,
+   "kind": "page",
+   "title": "对马大生的期许：回归单纯的学习态度 / 吴健南"
+  },
+  {
+   "path": "/bulletin/jiannan2.htm",
+   "size": 8468,
+   "kind": "page",
+   "title": "大专生与政治参与"
+  },
+  {
+   "path": "/bulletin/jiannan3.htm",
+   "size": 9674,
+   "kind": "page",
+   "title": "大专校园竞选感言：我也有一个梦 / 吴健南"
+  },
+  {
+   "path": "/bulletin/jingling.htm",
+   "size": 5507,
+   "kind": "page",
+   "title": "给没有人的信 / 精灵"
+  },
+  {
+   "path": "/bulletin/lansehaifeng.htm",
+   "size": 4753,
+   "kind": "page",
+   "title": "《老哥》/ 蓝色海风"
+  },
+  {
+   "path": "/bulletin/minzhi.htm",
+   "size": 5046,
+   "kind": "page",
+   "title": "《扭转命运》、《鸽子 VS 和平》…… / 黄敏芝"
+  },
+  {
+   "path": "/bulletin/xin.htm",
+   "size": 4297,
+   "kind": "page",
+   "title": "心情小记 / 馨"
+  },
+  {
+   "path": "/bulletin/yourui.htm",
+   "size": 6855,
+   "kind": "page",
+   "title": "《心情贵宾》 、《待航》、《在一抹清雅的妆里陀陷过》 / 张尤蕊"
+  },
+  {
+   "path": "/bulletin/zejing.htm",
+   "size": 3399,
+   "kind": "page",
+   "title": "《等候巴士》 /"
+  },
+  {
+   "path": "/bulletin/zhenrong.htm",
+   "size": 9421,
+   "kind": "page",
+   "title": "《爱情未亡人》、《我是预言家》… /"
+  },
+  {
+   "path": "/bulletin/zhixing.htm",
+   "size": 6423,
+   "kind": "page",
+   "title": "专访许志兴"
+  },
+  {
+   "path": "/bulletin/zhuxi.htm",
+   "size": 5646,
+   "kind": "page",
+   "title": "专访马大华文学会主席"
+  },
+  {
+   "path": "/bulletin.htm",
+   "size": 8737,
+   "kind": "page",
+   "title": "学会会讯"
+  },
+  {
+   "path": "/counter",
+   "size": 1478,
+   "kind": "other"
+  },
+  {
+   "path": "/edit_marquee.js",
+   "size": 331,
+   "kind": "script"
+  },
+  {
+   "path": "/exco.htm",
+   "size": 12570,
+   "kind": "page",
+   "title": "执委会名单"
+  },
+  {
+   "path": "/former_exco/14th_exco/14th_exco1.jpg",
+   "size": 68581,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/14th_exco/14th_exco2.jpg",
+   "size": 81228,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/14th_exco/14th_exco3.jpg",
+   "size": 88296,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/14th.htm",
+   "size": 8930,
+   "kind": "page",
+   "title": "马大华文学会执委会"
+  },
+  {
+   "path": "/former_exco/15th_exco/15th_me.jpg",
+   "size": 43464,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/15th_exco/15th_me2.jpg",
+   "size": 58644,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/15th_exco/15th_me3.jpg",
+   "size": 37223,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/15th_exco/15th_me4.jpg",
+   "size": 41743,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/15th.htm",
+   "size": 9023,
+   "kind": "page",
+   "title": "马大华文学会执委会"
+  },
+  {
+   "path": "/former_exco/16th_exco/16th_me.jpg",
+   "size": 61619,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/16th_exco/16th_me2.jpg",
+   "size": 56187,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/16th_exco/16th_me3.jpg",
+   "size": 42994,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/16th_exco/16th_me4.jpg",
+   "size": 43406,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/16th.htm",
+   "size": 9091,
+   "kind": "page",
+   "title": "马大华文学会执委会"
+  },
+  {
+   "path": "/former_exco/17th_exco/17th_exco1.jpg",
+   "size": 79160,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/17th_exco2.jpg",
+   "size": 70765,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/17th_exco3.jpg",
+   "size": 57091,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/17th_exco4.jpg",
+   "size": 57286,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/bianlun.htm",
+   "size": 1784,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/bianlun.jpg",
+   "size": 51718,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/ext_vice_president.htm",
+   "size": 1781,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/ext_vice_president.jpg",
+   "size": 52674,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/huawen.htm",
+   "size": 1775,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/huawen.jpg",
+   "size": 44803,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/Image-01.JPG",
+   "size": 598900,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/int_vice_president.htm",
+   "size": 1787,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/int_vice_president.jpg",
+   "size": 44496,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/president.htm",
+   "size": 1768,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/president.jpg",
+   "size": 39455,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/secretary.htm",
+   "size": 1768,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/secretary.jpg",
+   "size": 46668,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/tewei1.htm",
+   "size": 1777,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/tewei1.jpg",
+   "size": 49820,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/tewei2.htm",
+   "size": 1787,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/tewei2.jpg",
+   "size": 48591,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/treasurer.htm",
+   "size": 1780,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/treasurer.jpg",
+   "size": 51044,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/vice_treasurer.htm",
+   "size": 1857,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/vice_treasurer.jpg",
+   "size": 48886,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/wenhua.htm",
+   "size": 1767,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/wenhua.jpg",
+   "size": 46111,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/xiangsheng.htm",
+   "size": 1789,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/xiangsheng.jpg",
+   "size": 45401,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th_exco/yaolan.htm",
+   "size": 1777,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/17th_exco/yaolan.jpg",
+   "size": 45357,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/17th.htm",
+   "size": 10671,
+   "kind": "page",
+   "title": "马大华文学会执委会"
+  },
+  {
+   "path": "/former_exco/18th_exco/bianlun.htm",
+   "size": 3245,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/ext_vice_president.htm",
+   "size": 3262,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/HuangPeiMei.jpg",
+   "size": 9069,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/huawen.htm",
+   "size": 3252,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/int_vice_president.htm",
+   "size": 3260,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/JiangMiaoQi.jpg",
+   "size": 9614,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/LiangTaiRong.jpg",
+   "size": 9073,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/LiuKangLan.jpg",
+   "size": 9524,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/LiuYanJin.jpg",
+   "size": 9058,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/LiZhiXiang.jpg",
+   "size": 9389,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/LuoWeiJie.jpg",
+   "size": 10514,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/PanHongWen.jpg",
+   "size": 6757,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/president.htm",
+   "size": 3233,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/secretary.htm",
+   "size": 3245,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/SuMengLei.jpg",
+   "size": 8482,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/TangZhiBin.jpg",
+   "size": 9239,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/tewei1.htm",
+   "size": 3262,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/tewei2.htm",
+   "size": 3266,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/treasurer.htm",
+   "size": 3266,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/vice_secretary.htm",
+   "size": 3249,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/vice_treasurer.htm",
+   "size": 3248,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/wenhua.htm",
+   "size": 3228,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/WuXiaoPing.jpg",
+   "size": 7864,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/xiangsheng.htm",
+   "size": 3234,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/XieGuangLiang.jpg",
+   "size": 10226,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/YangLiPing.jpg",
+   "size": 10446,
+   "kind": "image"
+  },
+  {
+   "path": "/former_exco/18th_exco/yaolan.htm",
+   "size": 3243,
+   "kind": "page",
+   "title": "执委留影 一张照片，一个身影，一个笑容......"
+  },
+  {
+   "path": "/former_exco/18th_exco/ZhangYongWei.jpg",
+   "size": 9152,
+   "kind": "image"
+  },
+  {
+   "path": "/history.htm",
+   "size": 17399,
+   "kind": "page",
+   "title": "学会历史"
+  },
+  {
+   "path": "/image/13thQuanWen1.gif",
+   "size": 54651,
+   "kind": "image"
+  },
+  {
+   "path": "/image/13thQuanWen2.gif",
+   "size": 69594,
+   "kind": "image"
+  },
+  {
+   "path": "/image/14.jpg",
+   "size": 8499,
+   "kind": "image"
+  },
+  {
+   "path": "/image/16th_1.gif",
+   "size": 70779,
+   "kind": "image"
+  },
+  {
+   "path": "/image/16th_2.gif",
+   "size": 73460,
+   "kind": "image"
+  },
+  {
+   "path": "/image/1st_AGM.jpg",
+   "size": 32930,
+   "kind": "image"
+  },
+  {
+   "path": "/image/1stAGM.jpg",
+   "size": 37141,
+   "kind": "image"
+  },
+  {
+   "path": "/image/1stQuanBian.jpg",
+   "size": 24670,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2001FoodStall1.gif",
+   "size": 48285,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2001FoodStall2.gif",
+   "size": 65885,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2001JiaTingRi.gif",
+   "size": 69186,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2002DaXiang1.gif",
+   "size": 62312,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2002DaXiang2.gif",
+   "size": 62852,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2002Dayao1.gif",
+   "size": 64578,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2002Dayao2.gif",
+   "size": 72124,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2nd_ChouWei.jpg",
+   "size": 33933,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2thQuanzhong1.gif",
+   "size": 55847,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2thQuanzhong2.gif",
+   "size": 52842,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2thQuanzhong3.gif",
+   "size": 64024,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2thQuanzhong4.gif",
+   "size": 61010,
+   "kind": "image"
+  },
+  {
+   "path": "/image/2thQuanzhong5.gif",
+   "size": 80578,
+   "kind": "image"
+  },
+  {
+   "path": "/image/8thQuanbian1.gif",
+   "size": 65949,
+   "kind": "image"
+  },
+  {
+   "path": "/image/animate.gif",
+   "size": 402320,
+   "kind": "image"
+  },
+  {
+   "path": "/image/back.gif",
+   "size": 556,
+   "kind": "image"
+  },
+  {
+   "path": "/image/back1.gif",
+   "size": 347,
+   "kind": "image"
+  },
+  {
+   "path": "/image/back2.gif",
+   "size": 271,
+   "kind": "image"
+  },
+  {
+   "path": "/image/bullet.gif",
+   "size": 1031,
+   "kind": "image"
+  },
+  {
+   "path": "/image/bullet1.gif",
+   "size": 931,
+   "kind": "image"
+  },
+  {
+   "path": "/image/colorbar.gif",
+   "size": 4491,
+   "kind": "image"
+  },
+  {
+   "path": "/image/flybird.gif",
+   "size": 6891,
+   "kind": "image"
+  },
+  {
+   "path": "/image/historical_moment.jpg",
+   "size": 29520,
+   "kind": "image"
+  },
+  {
+   "path": "/image/history/1.jpg",
+   "size": 11871,
+   "kind": "image"
+  },
+  {
+   "path": "/image/history/10.jpg",
+   "size": 12789,
+   "kind": "image"
+  },
+  {
+   "path": "/image/history/11.jpg",
+   "size": 6970,
+   "kind": "image"
+  },
+  {
+   "path": "/image/history/12.jpg",
+   "size": 7758,
+   "kind": "image"
+  },
+  {
+   "path": "/image/history/2.jpg",
+   "size": 9691,
+   "kind": "image"
+  },
+  {
+   "path": "/image/history/3.jpg",
+   "size": 5876,
+   "kind": "image"
+  },
+  {
+   "path": "/image/history/4.jpg",
+   "size": 6290,
+   "kind": "image"
+  },
+  {
+   "path": "/image/history/5.jpg",
+   "size": 13158,
+   "kind": "image"
+  },
+  {
+   "path": "/image/history/6.jpg",
+   "size": 11206,
+   "kind": "image"
+  },
+  {
+   "path": "/image/history/7.jpg",
+   "size": 11570,
+   "kind": "image"
+  },
+  {
+   "path": "/image/history/8.jpg",
+   "size": 11288,
+   "kind": "image"
+  },
+  {
+   "path": "/image/history/9.jpg",
+   "size": 8887,
+   "kind": "image"
+  },
+  {
+   "path": "/image/next.gif",
+   "size": 168,
+   "kind": "image"
+  },
+  {
+   "path": "/image/Pbcum_logo.gif",
+   "size": 12069,
+   "kind": "image"
+  },
+  {
+   "path": "/image/pbcum.jpg",
+   "size": 15966,
+   "kind": "image"
+  },
+  {
+   "path": "/image/pbcum1.jpg",
+   "size": 16008,
+   "kind": "image"
+  },
+  {
+   "path": "/image/pbcum2.jpg",
+   "size": 18362,
+   "kind": "image"
+  },
+  {
+   "path": "/image/read_more.gif",
+   "size": 430,
+   "kind": "image"
+  },
+  {
+   "path": "/image/read_more1.gif",
+   "size": 710,
+   "kind": "image"
+  },
+  {
+   "path": "/image/red.gif",
+   "size": 931,
+   "kind": "image"
+  },
+  {
+   "path": "/image/structure.gif",
+   "size": 3767,
+   "kind": "image"
+  },
+  {
+   "path": "/image/structureme.gif",
+   "size": 4541,
+   "kind": "image"
+  },
+  {
+   "path": "/image/top.gif",
+   "size": 838,
+   "kind": "image"
+  },
+  {
+   "path": "/image/zhashi.jpg",
+   "size": 27486,
+   "kind": "image"
+  },
+  {
+   "path": "/index_test.htm",
+   "size": 10800,
+   "kind": "page",
+   "title": "主页设计稿 (test)"
+  },
+  {
+   "path": "/index.htm",
+   "size": 11296,
+   "kind": "page",
+   "title": "主页"
+  },
+  {
+   "path": "/index1.htm",
+   "size": 7574,
+   "kind": "page",
+   "title": "主页设计稿 1"
+  },
+  {
+   "path": "/index2.htm",
+   "size": 7621,
+   "kind": "page",
+   "title": "主页设计稿 2"
+  },
+  {
+   "path": "/index3.htm",
+   "size": 7700,
+   "kind": "page",
+   "title": "主页设计稿 3"
+  },
+  {
+   "path": "/index4.htm",
+   "size": 7654,
+   "kind": "page",
+   "title": "主页设计稿 4"
+  },
+  {
+   "path": "/indexcss.htm",
+   "size": 10107,
+   "kind": "page",
+   "title": "主页 (CSS 版本)"
+  },
+  {
+   "path": "/marquee_content.js",
+   "size": 3431,
+   "kind": "script"
+  },
+  {
+   "path": "/marquee_content1.js",
+   "size": 2973,
+   "kind": "script"
+  },
+  {
+   "path": "/marquee_function.htm",
+   "size": 2302,
+   "kind": "page",
+   "title": "滚动字幕函数说明"
+  },
+  {
+   "path": "/marquee.js",
+   "size": 1372,
+   "kind": "script"
+  },
+  {
+   "path": "/marquee1.js",
+   "size": 1174,
+   "kind": "script"
+  },
+  {
+   "path": "/neon.js",
+   "size": 720,
+   "kind": "script"
+  },
+  {
+   "path": "/notice.htm",
+   "size": 6862,
+   "kind": "page",
+   "title": "活动预告"
+  },
+  {
+   "path": "/onmouse_effect.css",
+   "size": 940,
+   "kind": "style"
+  },
+  {
+   "path": "/philosophy/jiazhi.htm",
+   "size": 5483,
+   "kind": "page",
+   "title": "学会思想--学会的存在价值"
+  },
+  {
+   "path": "/philosophy/mubiao.htm",
+   "size": 4710,
+   "kind": "page",
+   "title": "学会思想--学会目标"
+  },
+  {
+   "path": "/philosophy/zhuti.htm",
+   "size": 3639,
+   "kind": "page",
+   "title": "学会思想--学会主题"
+  },
+  {
+   "path": "/philosophy/zongzhi.htm",
+   "size": 4076,
+   "kind": "page",
+   "title": "学会思想--学会宗旨"
+  },
+  {
+   "path": "/philosophy.htm",
+   "size": 4755,
+   "kind": "page",
+   "title": "学会思想"
+  },
+  {
+   "path": "/photo.htm",
+   "size": 2230,
+   "kind": "page",
+   "title": "学会掠影"
+  },
+  {
+   "path": "/poster/AGM_2003.gif",
+   "size": 80223,
+   "kind": "image"
+  },
+  {
+   "path": "/poster/AGM2003.gif",
+   "size": 80223,
+   "kind": "image"
+  },
+  {
+   "path": "/poster/agm2003.htm",
+   "size": 1621,
+   "kind": "page",
+   "title": "活动预告 华文学会，您的学会......"
+  },
+  {
+   "path": "/poster/AGM2003.jpg",
+   "size": 67941,
+   "kind": "image"
+  },
+  {
+   "path": "/poster/DaXiang2003.gif",
+   "size": 43660,
+   "kind": "image"
+  },
+  {
+   "path": "/poster/daxiang2003.htm",
+   "size": 1624,
+   "kind": "page",
+   "title": "活动预告 华文学会，您的学会......"
+  },
+  {
+   "path": "/poster/feixingshu.gif",
+   "size": 51538,
+   "kind": "image"
+  },
+  {
+   "path": "/poster/feixingshu.htm",
+   "size": 1623,
+   "kind": "page",
+   "title": "活动预告 华文学会，您的学会......"
+  },
+  {
+   "path": "/poster/guobian_news1.htm",
+   "size": 1952,
+   "kind": "page",
+   "title": "第六届国际大专辩论会A组初赛第三场"
+  },
+  {
+   "path": "/poster/poster1.GIF",
+   "size": 81109,
+   "kind": "image"
+  },
+  {
+   "path": "/poster/poster1.htm",
+   "size": 1641,
+   "kind": "page",
+   "title": "活动预告 华文学会，您的学会......"
+  },
+  {
+   "path": "/poster/quanzhong/biaoge.doc",
+   "size": 31744,
+   "kind": "document"
+  },
+  {
+   "path": "/poster/quanzhong/Jian Zhang.doc",
+   "size": 30720,
+   "kind": "document"
+  },
+  {
+   "path": "/poster/quanzhong/quanzhong_news1.htm",
+   "size": 2554,
+   "kind": "page",
+   "title": "2003年第三届全国中学生生活营"
+  },
+  {
+   "path": "/poster/recruitment1.jpg",
+   "size": 48839,
+   "kind": "image"
+  },
+  {
+   "path": "/poster/WenJuan2002.gif",
+   "size": 49682,
+   "kind": "image"
+  },
+  {
+   "path": "/poster/wenjuan2002.htm",
+   "size": 1624,
+   "kind": "page",
+   "title": "活动预告 华文学会，您的学会......"
+  },
+  {
+   "path": "/poster/yaolanshou_poster1.htm",
+   "size": 1631,
+   "kind": "page",
+   "title": "活动预告 华文学会，您的学会......"
+  },
+  {
+   "path": "/poster/yaolanshou_poster1.jpg",
+   "size": 84032,
+   "kind": "image"
+  },
+  {
+   "path": "/poster/yingxin2003.htm",
+   "size": 12528,
+   "kind": "page",
+   "title": "马大华文学会迎新活动重点出击！"
+  },
+  {
+   "path": "/showdate.js",
+   "size": 934,
+   "kind": "script"
+  },
+  {
+   "path": "/song.htm",
+   "size": 3112,
+   "kind": "page",
+   "title": "学会会歌"
+  },
+  {
+   "path": "/structure/Advisor_2.gif",
+   "size": 267,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/Advisor.gif",
+   "size": 237,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/AGM_2.gif",
+   "size": 293,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/AGM.gif",
+   "size": 268,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/BlankBlock.gif",
+   "size": 82,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/CaiWuChu_2.gif",
+   "size": 296,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/CaiWuChu.gif",
+   "size": 265,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/ChouWeiHui_2.gif",
+   "size": 443,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/ChouWeiHui.gif",
+   "size": 404,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/HorizontalFrame1.gif",
+   "size": 158,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/HorizontalFrame2.gif",
+   "size": 111,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/JiLuWeiYuanHui_2.gif",
+   "size": 339,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/JiLuWeiYuanHui.gif",
+   "size": 303,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/ME_2.gif",
+   "size": 290,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/ME.gif",
+   "size": 256,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/MiShuChu_2.gif",
+   "size": 293,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/MiShuChu.gif",
+   "size": 263,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/unit_2.gif",
+   "size": 387,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/unit.gif",
+   "size": 347,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/VerticalFrame1.gif",
+   "size": 199,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/VerticalFrame2.gif",
+   "size": 741,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/WaiWuChu_2.gif",
+   "size": 283,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/WaiWuChu.gif",
+   "size": 256,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/XueJiTuan_2.gif",
+   "size": 329,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/XueJiTuan.gif",
+   "size": 299,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/ZiXunWeiYuanHui_2.gif",
+   "size": 422,
+   "kind": "image"
+  },
+  {
+   "path": "/structure/ZiXunWeiYuanHui.gif",
+   "size": 390,
+   "kind": "image"
+  },
+  {
+   "path": "/structure.htm",
+   "size": 8649,
+   "kind": "page",
+   "title": "学会组织架构"
+  },
+  {
+   "path": "/structureexco.htm",
+   "size": 2854,
+   "kind": "page",
+   "title": "执委会组织架构"
+  },
+  {
+   "path": "/Tripod_files/1.gif",
+   "size": 43,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/1x1.gif",
+   "size": 43,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/alert.gif",
+   "size": 114,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/CAKH558B_files/button_logout.gif",
+   "size": 159,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/CAKH558B_files/logo_tln_159x34.gif",
+   "size": 2043,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/CAKH558B_files/s.gif",
+   "size": 43,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/CAKH558B.htm",
+   "size": 4492,
+   "kind": "page",
+   "title": "Hello, quanbian9"
+  },
+  {
+   "path": "/Tripod_files/dmenu.js",
+   "size": 4383,
+   "kind": "script"
+  },
+  {
+   "path": "/Tripod_files/foot_angle.gif",
+   "size": 76,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/go.gif",
+   "size": 110,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/header_corner_cut.gif",
+   "size": 88,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/headerLayer.js",
+   "size": 3116,
+   "kind": "script"
+  },
+  {
+   "path": "/Tripod_files/help.gif",
+   "size": 90,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/htmleditor_spot.gif",
+   "size": 4897,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/menubuilder.js",
+   "size": 22375,
+   "kind": "script"
+  },
+  {
+   "path": "/Tripod_files/sitebuilder_spot.gif",
+   "size": 5350,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/tab_end.gif",
+   "size": 82,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/tab_mid.gif",
+   "size": 81,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/tab_right_active.gif",
+   "size": 108,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/tripod_logo_bottom_new.gif",
+   "size": 141,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/tripod_logo_top_left.gif",
+   "size": 1379,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/tripod_logo_top_right.gif",
+   "size": 339,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod_files/tripod.css",
+   "size": 3825,
+   "kind": "style"
+  },
+  {
+   "path": "/Tripod_files/tripodplus_welcome.gif",
+   "size": 3874,
+   "kind": "image"
+  },
+  {
+   "path": "/Tripod.htm",
+   "size": 22052,
+   "kind": "page",
+   "title": "Tripod 占位页 (第三方存档)"
+  },
+  {
+   "path": "/unit/unit_member.htm",
+   "size": 7736,
+   "kind": "page",
+   "title": "各组、处、团的组委/团委/常委"
+  },
+  {
+   "path": "/unit/unit_member2.htm",
+   "size": 7754,
+   "kind": "page",
+   "title": "各组、处、团的组委/团委/常委"
+  },
+  {
+   "path": "/unit/wenhua/shufa.htm",
+   "size": 6654,
+   "kind": "page",
+   "title": "文化组"
+  },
+  {
+   "path": "/unit.htm",
+   "size": 19382,
+   "kind": "page",
+   "title": "学会各小组 (一)"
+  },
+  {
+   "path": "/unit2.htm",
+   "size": 18458,
+   "kind": "page",
+   "title": "学会各小组 (二)"
+  },
+  {
+   "path": "/wenxian/18thguwenxianci.htm",
+   "size": 3655,
+   "kind": "page",
+   "title": "学会代顾问老师周添健讲师献词"
+  },
+  {
+   "path": "/wenxian/18thzhuxixianci.htm",
+   "size": 5053,
+   "kind": "page",
+   "title": "学会主席迎新献词"
+  },
+  {
+   "path": "/wenxian/ganyan1.htm",
+   "size": 10588,
+   "kind": "page",
+   "title": "学会感言"
+  },
+  {
+   "path": "/wenxian/pinlun1.htm",
+   "size": 6524,
+   "kind": "page",
+   "title": "学会文献--评论"
+  },
+  {
+   "path": "/wenxian/pinlun2.htm",
+   "size": 8430,
+   "kind": "page",
+   "title": "学会文献--评论"
+  },
+  {
+   "path": "/wenxian/pinlun3.htm",
+   "size": 8411,
+   "kind": "page",
+   "title": "学会文献--评论"
+  },
+  {
+   "path": "/wenxian/pinlun4.htm",
+   "size": 6502,
+   "kind": "page",
+   "title": "学会文献--评论"
+  },
+  {
+   "path": "/wenxian/pinlun5.htm",
+   "size": 6240,
+   "kind": "page",
+   "title": "学会文献--评论"
+  },
+  {
+   "path": "/wenxian/pinlun6.htm",
+   "size": 8906,
+   "kind": "page",
+   "title": "学会文献--评论"
+  },
+  {
+   "path": "/wenxian/pinlun7.htm",
+   "size": 6991,
+   "kind": "page",
+   "title": "学会文献--评论"
+  },
+  {
+   "path": "/wenxian/pinlun8.htm",
+   "size": 5915,
+   "kind": "page",
+   "title": "学会文献--评论"
+  },
+  {
+   "path": "/wenxian/value1.htm",
+   "size": 5478,
+   "kind": "page",
+   "title": "学会文献--评论"
+  },
+  {
+   "path": "/wenxian/xianci1.htm",
+   "size": 4135,
+   "kind": "page",
+   "title": "学会顾问老师谢爱萍博士献词"
+  },
+  {
+   "path": "/wenxian/xianci2.htm",
+   "size": 4286,
+   "kind": "page",
+   "title": "学会主席迎新献词"
+  },
+  {
+   "path": "/wenxian.htm",
+   "size": 7235,
+   "kind": "page",
+   "title": "学会文献"
+  }
+ ]
+}
