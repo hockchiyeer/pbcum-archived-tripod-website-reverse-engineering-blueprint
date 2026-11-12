@@ -19,8 +19,10 @@ const decode = (bytes: Uint8Array, label: string): string => {
   try { return new TextDecoder(label).decode(bytes); } catch { return new TextDecoder('utf-8').decode(bytes); }
 };
 
+import { withBase } from './baseUrl';
+
 async function fetchDecoded(path: string, inheritedCharset?: string): Promise<{ text: string; charset: string } | null> {
-  const res = await fetch(path);
+  const res = await fetch(withBase(path));
   if (!res.ok) return null;
   const bytes = new Uint8Array(await res.arrayBuffer());
   const charset = declaredCharset(bytes) ?? inheritedCharset ?? 'utf-8';
@@ -54,6 +56,6 @@ export async function buildLegacyDocument(path: string): Promise<string> {
   html = html.replace(scriptRe, (_m, src: string) => `<script>${(inlined.get(src) ?? '').replace(/<\/script/gi, '<\\/script')}</script>`);
 
   // absolute: a blob: document cannot resolve a relative <base>
-  const base = `<base href="${window.location.origin}${dir}">`;
+  const base = `<base href="${window.location.origin}${withBase(dir)}">`;
   return /<head[^>]*>/i.test(html) ? html.replace(/<head[^>]*>/i, (m) => m + base) : base + html;
 }

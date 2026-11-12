@@ -34,6 +34,27 @@ Optional: copy `.env.example` to `.env.local` and set `GEMINI_API_KEY` if you us
 | `npm run verify` | Parity check (see below) — run after `npm run build` |
 | `npm run lint` | Type-check (`tsc --noEmit`) |
 
+## Deploy to GitHub Pages
+
+```bash
+npm install --legacy-peer-deps
+npm run build:pages                       # -> dist/ (static site; base path auto-detected from the git remote)
+npm run build:pages -- --base /           # custom domain or <user>.github.io repo
+npm run build:pages -- --base /my-repo/   # explicit project-page path
+```
+
+`build:pages` regenerates the manifest, runs `vite build` with the right `base`, adds `.nojekyll` and `404.html`, then runs the
+parity check. Publish `dist/` either way:
+
+- **Automatic (recommended):** push to `main`; `.github/workflows/deploy-pages.yml` builds and deploys. Set
+  *Settings → Pages → Source → GitHub Actions* once.
+- **Manual:** publish the contents of `dist/` to a `gh-pages` branch (e.g. `npx gh-pages -d dist --dotfiles`) and set *Source* to that branch.
+
+Preview locally under the same path: `npx vite preview --base /my-repo/`.
+
+> GitHub Pages sends `.htm` files as UTF-8, which can garble the GB2312/Big5 pages in the **原始文件 (Raw)** view and
+> the inspector previews. The default **兼容渲染 (Compat)** view decodes each page itself and is unaffected.
+
 ## What you get in the app
 
 | Area | Purpose |

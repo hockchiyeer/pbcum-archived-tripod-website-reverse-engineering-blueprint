@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { ARCHIVE_PAGES } from '../data/archiveTree';
 import { buildLegacyDocument } from '../lib/legacyDocument';
+import { stripBase } from '../lib/baseUrl';
 
 const PAGE_PATHS = new Set(ARCHIVE_PAGES.map((p) => p.path));
 
@@ -67,7 +68,7 @@ export const LegacyFrame: React.FC<LegacyFrameProps> = ({ path, onNavigate }) =>
 
     // A script assigned location.href (e.g. the "past committees" dropdown): stay inside the app.
     if (win.location.protocol !== 'blob:') {
-      const p = decodeURI(win.location.pathname);
+      const p = stripBase(decodeURI(win.location.pathname));
       if (PAGE_PATHS.has(p)) onNavigate(p + win.location.hash);
       return;
     }
@@ -82,9 +83,10 @@ export const LegacyFrame: React.FC<LegacyFrameProps> = ({ path, onNavigate }) =>
       const target = (a.getAttribute('target') || '').toLowerCase();
       const sameWindow = !target || target === '_self' || target === '_top' || target === '_parent';
       const url = new URL(a.href, window.location.href);
+      const urlPath = stripBase(url.pathname);
       if (url.origin === window.location.origin) {
-        if (url.pathname === base && url.hash) { e.preventDefault(); scrollToHash(url.hash); return; }
-        if (sameWindow && PAGE_PATHS.has(url.pathname)) { e.preventDefault(); onNavigate(url.pathname + url.hash); }
+        if (urlPath === base && url.hash) { e.preventDefault(); scrollToHash(url.hash); return; }
+        if (sameWindow && PAGE_PATHS.has(urlPath)) { e.preventDefault(); onNavigate(urlPath + url.hash); }
         // otherwise (named window such as target="notice" / "main", .doc downloads): native behaviour
       } else if (sameWindow) {
         e.preventDefault();                                  // external site: never replace the app

@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ExternalLink, FileCode } from 'lucide-react';
 import { ARCHIVE_PAGES } from '../data/archiveTree';
+import { withBase, stripBase } from '../lib/baseUrl';
 
 interface ArchiveFrameProps {
   /** Original archive URL path of the page, e.g. "/activity/13thquanwen.htm". */
@@ -34,7 +35,7 @@ export const ArchiveFrame: React.FC<ArchiveFrameProps> = ({ path, onNavigate, em
     const frame = ref.current;
     if (!frame) return;
     try {
-      const loaded = decodeURI(frame.contentWindow!.location.pathname);
+      const loaded = stripBase(decodeURI(frame.contentWindow!.location.pathname));
       if (loaded !== path && PAGE_PATHS.has(loaded)) onNavigate?.(loaded);   // user followed a link inside the page
     } catch { /* cross-origin (external) page: nothing to sync */ }
     measure();
@@ -56,7 +57,7 @@ export const ArchiveFrame: React.FC<ArchiveFrameProps> = ({ path, onNavigate, em
             {meta?.title && <span className="text-slate-400 truncate">· {meta.title}</span>}
           </div>
           <a
-            href={path}
+            href={withBase(path)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-blue-800 hover:underline shrink-0"
@@ -68,7 +69,7 @@ export const ArchiveFrame: React.FC<ArchiveFrameProps> = ({ path, onNavigate, em
       <iframe
         ref={ref}
         key={path}
-        src={path}
+        src={withBase(path)}
         title={meta?.title ?? path}
         // The 2004 home pages contain a frame-buster (top.location = self); without allow-top-navigation it is inert.
         sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox allow-forms"

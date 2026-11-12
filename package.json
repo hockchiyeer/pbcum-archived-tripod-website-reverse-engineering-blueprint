@@ -12,7 +12,8 @@
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
     "manifest": "node scripts/build-archive-manifest.mjs",
-    "verify": "node scripts/verify-parity.mjs"
+    "verify": "node scripts/verify-parity.mjs",
+    "build:pages": "node scripts/build-pages.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

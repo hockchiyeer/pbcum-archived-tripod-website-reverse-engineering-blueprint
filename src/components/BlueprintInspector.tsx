@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { withBase } from '../lib/baseUrl';
 import { 
   FolderTree, 
   Layers, 
@@ -680,7 +681,7 @@ td.navcell {
                   >
                     <div className="h-24 bg-white rounded flex items-center justify-center p-1 border border-slate-100 overflow-hidden">
                       <img
-                        src={asset.src}
+                        src={withBase(asset.src)}
                         alt={asset.name}
                         className="max-h-full max-w-full object-contain group-hover:scale-110 transition duration-150"
                         loading="lazy"
@@ -839,7 +840,7 @@ td.navcell {
                 </div>
                 <div className="p-4 my-2 bg-slate-900 rounded flex items-center justify-center min-h-[220px]">
                   <img
-                    src={selectedAssetModal.path}
+                    src={withBase(selectedAssetModal.path)}
                     alt={selectedAssetModal.name}
                     className="max-h-[50vh] max-w-full object-contain shadow"
                   />

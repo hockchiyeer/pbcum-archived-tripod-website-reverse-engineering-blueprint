@@ -1,0 +1,2 @@
+# Keep the archived 2004 pages byte-for-byte (GB2312/Big5): no EOL or encoding conversion
+site/** -text
