@@ -38,12 +38,32 @@ export const patchLegacyScript = (s: string): string => s
   .replace(/document\.marquee\.all\.marq1/g, 'document.getElementById("marq1")')
   .replace(/document\.all\.neonlight/g, 'document.querySelectorAll("[id=neonlight]")');
 
-export async function buildLegacyDocument(path: string): Promise<string> {
+/**
+ * The archive uses root-absolute URLs ("/image/bullet.gif", "/index.htm"). Hosted at a domain root that is fine, but on
+ * GitHub project pages (https://user.github.io/<repo>/) they resolve to https://user.github.io/image/... and 404 -
+ * <base href> does not help because a leading "/" ignores it. So, at run time only (the archive files stay untouched),
+ * prefix those URLs with the site's base path: HTML attributes (quoted or not) and quoted string literals in scripts.
+ */
+export const rebaseRootPaths = (s: string): string => withBase('/') === '/' ? s : s
+  .replace(/(\b(?:src|background|lowsrc|href|value)\s*=\s*)(["']?)\/(?!\/)([^"'\s>]*)/gi,
+    (_m, pre: string, q: string, rest: string) => `${pre}${q}${withBase('/' + rest)}`)
+  .replace(/(["'])\/(?!\/)([^"'\s<>]*\.(?:html?|gif|jpe?g|png|bmp|ico|css|js))\1/gi,
+    (_m, q: string, rest: string) => `${q}${withBase('/' + rest)}${q}`);
+
+/**
+ * `patch: false` builds the "raw" view: the file exactly as authored (no IE-compat script patches), but still decoded
+ * with the charset it declares (GB2312 / Big5). GitHub Pages cannot send a per-file charset header and labels every
+ * .htm as UTF-8, so an iframe / tab pointed straight at the file shows mojibake; decoding here and serving the result as
+ * a UTF-8 blob avoids that.
+ */
+export async function buildLegacyDocument(path: string, opts: { patch?: boolean } = {}): Promise<string> {
+  const patch = opts.patch !== false;
+  const fix = (t: string) => rebaseRootPaths(patch ? patchLegacyScript(t) : t);
   const page = await fetchDecoded(path);
   if (page === null) throw new Error(`Archive page not found: ${path}`);
   const dir = path.slice(0, path.lastIndexOf('/') + 1);   // "/" or "/activity/"
 
-  let html = patchLegacyScript(page.text);
+  let html = fix(page.text);
 
   const scriptRe = /<script\b[^>]*?\bsrc\s*=\s*["']?([^"'\s>]+)["']?[^>]*>\s*<\/script>/gi;
   const srcs = [...new Set([...html.matchAll(scriptRe)].map((m) => m[1]))];
@@ -51,11 +71,25 @@ export async function buildLegacyDocument(path: string): Promise<string> {
   await Promise.all(srcs.map(async (src) => {
     const abs = src.startsWith('/') ? src : dir + src;
     const script = await fetchDecoded(abs, page.charset).catch(() => null);
-    inlined.set(src, script === null ? '' : patchLegacyScript(script.text));
+    inlined.set(src, script === null ? '' : fix(script.text));
   }));
   html = html.replace(scriptRe, (_m, src: string) => `<script>${(inlined.get(src) ?? '').replace(/<\/script/gi, '<\\/script')}</script>`);
 
   // absolute: a blob: document cannot resolve a relative <base>
   const base = `<base href="${window.location.origin}${withBase(dir)}">`;
   return /<head[^>]*>/i.test(html) ? html.replace(/<head[^>]*>/i, (m) => m + base) : base + html;
+}
+
+/** Opens an archived page in a new tab with its original charset decoded correctly (no IE patches). */
+export async function openOriginalInNewTab(path: string): Promise<void> {
+  const w = window.open('', '_blank');           // opened synchronously so pop-up blockers allow it
+  try {
+    const html = await buildLegacyDocument(path, { patch: false });
+    const url = URL.createObjectURL(new Blob([html], { type: 'text/html;charset=utf-8' }));
+    if (w) w.location.href = url; else window.open(url, '_blank');
+    setTimeout(() => URL.revokeObjectURL(url), 60_000);
+  } catch (e) {
+    w?.close();
+    throw e;
+  }
 }

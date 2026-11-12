@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { ArrowLeft, ExternalLink, FileCode } from 'lucide-react';
 import { LegacyFrame } from './LegacyFrame';
-import { ArchiveFrame } from './ArchiveFrame';
+import { openOriginalInNewTab } from '../lib/legacyDocument';
 import { ARCHIVE_PAGES } from '../data/archiveTree';
 
 interface PbcumSiteViewerProps {
@@ -59,9 +59,9 @@ export const PbcumSiteViewer: React.FC<PbcumSiteViewerProps> = ({ initialPage = 
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <a href={basePath} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-blue-800 hover:underline">
+            <button onClick={() => openOriginalInNewTab(basePath).catch(() => undefined)} className="inline-flex items-center gap-1 text-blue-800 hover:underline">
               <ExternalLink className="w-3 h-3" /> 在新窗口打开原页
-            </a>
+            </button>
             <div className="inline-flex rounded overflow-hidden border border-slate-300" role="group" aria-label="页面呈现方式">
               {modeBtn('compat', '兼容渲染')}
               {modeBtn('raw', '原始文件')}
@@ -70,9 +70,7 @@ export const PbcumSiteViewer: React.FC<PbcumSiteViewerProps> = ({ initialPage = 
         </div>
 
         <div className={`bg-white border border-slate-300 shadow-md overflow-hidden ${modernMode ? 'rounded-xl' : ''}`}>
-          {mode === 'compat'
-            ? <LegacyFrame path={current} onNavigate={go} />
-            : <ArchiveFrame path={basePath} onNavigate={go} embedded />}
+          <LegacyFrame path={current} onNavigate={go} raw={mode === 'raw'} />
         </div>
       </div>
     </div>

@@ -10,6 +10,8 @@ interface LegacyFrameProps {
   path: string;
   /** Called when a same-window link inside the page targets another archive page. */
   onNavigate: (path: string) => void;
+  /** Show the file as authored (no IE-compat patches) - still decoded with its declared GB2312/Big5 charset. */
+  raw?: boolean;
 }
 
 const SANDBOX = 'allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox allow-forms';
@@ -19,7 +21,7 @@ const SANDBOX = 'allow-same-origin allow-scripts allow-popups allow-popups-to-es
  * named-window links and `window.open` pop-ups (580x450, 550x500, ...). Same-window links keep the visitor inside the
  * app; everything else (pop-ups, named windows, mailto:, downloads) behaves natively.
  */
-export const LegacyFrame: React.FC<LegacyFrameProps> = ({ path, onNavigate }) => {
+export const LegacyFrame: React.FC<LegacyFrameProps> = ({ path, onNavigate, raw = false }) => {
   const frameRef = useRef<HTMLIFrameElement>(null);
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -32,7 +34,7 @@ export const LegacyFrame: React.FC<LegacyFrameProps> = ({ path, onNavigate }) =>
     let alive = true;
     let url: string | null = null;
     setBlobUrl(null); setError(null); setHeight(480);
-    buildLegacyDocument(base)
+    buildLegacyDocument(base, { patch: !raw })
       .then((h) => {
         if (!alive) return;
         // A blob: document (unlike srcdoc) can stay in quirks mode, which the DOCTYPE-less 2004 pages rely on.
@@ -41,7 +43,7 @@ export const LegacyFrame: React.FC<LegacyFrameProps> = ({ path, onNavigate }) =>
       })
       .catch((e) => alive && setError(String(e.message ?? e)));
     return () => { alive = false; if (url) URL.revokeObjectURL(url); };
-  }, [base]);
+  }, [base, raw]);
 
   const scrollToHash = useCallback((h: string) => {
     const frame = frameRef.current; const doc = frame?.contentDocument;
@@ -107,7 +109,7 @@ export const LegacyFrame: React.FC<LegacyFrameProps> = ({ path, onNavigate }) =>
   return (
     <iframe
       ref={frameRef}
-      key={base}
+      key={`${base}|${raw}`}
       src={blobUrl}
       sandbox={SANDBOX}
       onLoad={handleLoad}
