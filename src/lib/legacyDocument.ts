@@ -19,7 +19,7 @@ const decode = (bytes: Uint8Array, label: string): string => {
   try { return new TextDecoder(label).decode(bytes); } catch { return new TextDecoder('utf-8').decode(bytes); }
 };
 
-import { withBase } from './baseUrl';
+import { withBase, stripBase } from './baseUrl';
 
 async function fetchDecoded(path: string, inheritedCharset?: string): Promise<{ text: string; charset: string } | null> {
   const res = await fetch(withBase(path));
@@ -76,8 +76,65 @@ export async function buildLegacyDocument(path: string, opts: { patch?: boolean 
   html = html.replace(scriptRe, (_m, src: string) => `<script>${(inlined.get(src) ?? '').replace(/<\/script/gi, '<\\/script')}</script>`);
 
   // absolute: a blob: document cannot resolve a relative <base>
-  const base = `<base href="${window.location.origin}${withBase(dir)}">`;
+  const base = `<base href="${window.location.origin}${withBase(dir)}">` + `<script>${POPUP_INTERCEPTOR}</script>`;
   return /<head[^>]*>/i.test(html) ? html.replace(/<head[^>]*>/i, (m) => m + base) : base + html;
+}
+
+/**
+ * Injected into every page we build. Pop-ups (`window.open`), named-window links (target="notice") and - inside a pop-up -
+ * ordinary links would otherwise load the raw .htm URL, which GitHub Pages labels UTF-8 (GB2312 text -> mojibake).
+ * They are routed through the app's decoder instead (window.__pbcumArchive, installed by installArchiveOpener()).
+ */
+const POPUP_INTERCEPTOR = `(function(){
+  function api(){
+    var c=[window.parent,window.top,window.opener];
+    for(var i=0;i<c.length;i++){try{if(c[i]&&c[i].__pbcumArchive)return c[i].__pbcumArchive;}catch(e){}}
+    return null;
+  }
+  function isArchive(u){return u.origin===location.origin&&/\.html?$/i.test(u.pathname)&&u.pathname.indexOf('.htm')>0;}
+  var nativeOpen=window.open;
+  window.open=function(href,name,features){
+    try{var u=new URL(href,document.baseURI),a=api();if(a&&isArchive(u))return a.open(u.href,name,features);}catch(e){}
+    return nativeOpen.apply(window,arguments);
+  };
+  document.addEventListener('click',function(e){
+    if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey)return;
+    var el=e.target,a=el&&el.closest&&el.closest('a[href]');if(!a)return;
+    var u;try{u=new URL(a.href,document.baseURI);}catch(x){return;}
+    var api_=api();if(!api_||!isArchive(u))return;
+    var t=(a.getAttribute('target')||'').toLowerCase();
+    var self_=!t||t==='_self'||t==='_top'||t==='_parent';
+    var popup=window.parent===window;            // top-level pop-up window (not the app's frame, which routes itself)
+    if(self_&&!popup)return;
+    e.preventDefault();
+    if(self_)api_.navigate(window,u.href);else api_.open(u.href,a.getAttribute('target'),'');
+  },true);
+})();`;
+
+/**
+ * Installed once by the app. Lets documents we built (frames and the pop-ups they open) open / navigate to archive pages
+ * through the decoder. window.open is called here, in the app window, so the new window is not sandboxed.
+ */
+export function installArchiveOpener(): void {
+  const toPath = (href: string) => { const u = new URL(href); return stripBase(decodeURI(u.pathname)) + u.hash; };
+  const blobUrl = async (href: string) => {
+    const p = toPath(href);
+    const hash = p.includes('#') ? p.slice(p.indexOf('#')) : '';
+    const html = await buildLegacyDocument(p.split('#')[0]);
+    const url = URL.createObjectURL(new Blob([html], { type: 'text/html;charset=utf-8' }));
+    setTimeout(() => URL.revokeObjectURL(url), 10 * 60_000);
+    return url + hash;
+  };
+  (window as unknown as { __pbcumArchive: unknown }).__pbcumArchive = {
+    open(href: string, name?: string | null, features?: string): Window | null {
+      const w = window.open('', name || '_blank', features || '');   // synchronous, so pop-up blockers allow it
+      blobUrl(href).then((u) => w?.location.replace(u)).catch(() => w?.location.replace(href));
+      return w;
+    },
+    navigate(win: Window, href: string): void {
+      blobUrl(href).then((u) => win.location.replace(u)).catch(() => win.location.assign(href));
+    },
+  };
 }
 
 /** Opens an archived page in a new tab with its original charset decoded correctly (no IE patches). */

@@ -52,8 +52,13 @@ parity check. Publish `dist/` either way:
 
 Preview locally under the same path: `npx vite preview --base /my-repo/`.
 
-> GitHub Pages sends `.htm` files as UTF-8, which can garble the GB2312/Big5 pages in the **原始文件 (Raw)** view and
-> the inspector previews. The default **兼容渲染 (Compat)** view decodes each page itself and is unaffected.
+> **Legacy charset on GitHub Pages.** GitHub Pages labels every `.htm` as UTF-8, which garbles the GB2312/Big5 pages when they are
+> opened directly (pop-ups such as `window.open('/photo.htm', ...)`, named-window links like `target="notice"`, typed URLs).
+> Two layers fix this without touching `site/`: (1) `src/sw/charset-sw.js` — a service worker (emitted as `pbcum-charset-sw.js`)
+> that re-labels each archive page with the charset it declares in its own `<meta>`; (2) a pop-up interceptor injected into every
+> rendered page (`src/lib/legacyDocument.ts`) that routes `window.open` / named-window / in-pop-up links through the app's decoder,
+> so pop-ups are readable even when service workers are unavailable. Only a raw archive URL typed into the address bar on a
+> browser that blocks service workers (or on the very first visit, before the worker is active) can still show UTF-8 mis-decoding.
 
 ## What you get in the app
 

@@ -7,7 +7,8 @@ import {defineConfig, type Plugin} from 'vite';
 /**
  * The archive in ./site is kept byte-identical to the original (GB2312 / Big5 pages). Vite would label every .htm as
  * UTF-8, which garbles them, so archive pages are served with the charset they declare in their own <meta>.
- * (For production hosting, serve the .htm files with the same charset, or send none and let the <meta> decide.)
+ * This covers dev/preview. On GitHub Pages (UTF-8 header on every .htm) src/sw/charset-sw.js and the pop-up interceptor in
+ * src/lib/legacyDocument.ts do the same job.
  */
 function archiveCharset(rootDir: (server: { config: { root: string; build: { outDir: string } } }, preview: boolean) => string): Plugin {
   const handler = (root: string): import('connect').NextHandleFunction => (req, res, next) => {
@@ -31,6 +32,18 @@ function archiveCharset(rootDir: (server: { config: { root: string; build: { out
   };
 }
 
+/** Emits the charset service worker (src/sw/charset-sw.js) at the site base so GitHub Pages serves it next to index.html. */
+function charsetServiceWorker(): Plugin {
+  const file = path.resolve(__dirname, 'src/sw/charset-sw.js');
+  return {
+    name: 'pbcum-charset-sw',
+    apply: 'build',
+    generateBundle() {
+      this.emitFile({ type: 'asset', fileName: 'pbcum-charset-sw.js', source: fs.readFileSync(file, 'utf8') });
+    },
+  };
+}
+
 export default defineConfig(() => {
   return {
     // The archived site in ./site is served verbatim at the web root (/index.htm, /activity/13thquanwen.htm,
@@ -39,6 +52,7 @@ export default defineConfig(() => {
     plugins: [
       react(),
       tailwindcss(),
+      charsetServiceWorker(),
       archiveCharset((server, preview) => preview
         ? path.resolve(server.config.root, server.config.build.outDir)
         : path.resolve(server.config.root, 'site')),
