@@ -162,10 +162,19 @@ External same-window links open in a new tab so they cannot replace the app.
 - **New IE-only construct in a page?** Add its replacement to `patchLegacyScript` in `src/lib/legacyDocument.ts`.
 - **Do not hand-edit** `archiveManifest.generated.json`.
 
+## Reverse-Engineered Highlights
+
+### Historical Architecture & Provenance
+
+- **Hosting platform and period characteristics:** Reconstructed the original static website architecture based on the 1998–2004 Tripod / Lycos Member Pages hosting environment, preserving its characteristic nested HTML table layouts, DHTML interactive scripts (`inCell` / `outCell` hover highlighting), bidirectional scrolling `<marquee>` tickers, Internet Explorer-specific scrollbar colours, and GB2312 character encoding.
+- **Original authorship and maintenance history:** Accurately preserved the original creator's copyright attribution to **Soo Chee Kiong (1998-04-08)**, together with the historical redesign and maintenance records documenting successive PBCUM 2002–2004 Network Executive Committees (网络执委会).
+
+These historical details are retained as part of the archive's digital provenance, rather than being replaced with modern approximations.
+
 ## Provenance
 
-The archive arrived as a zip attached to a 2004 committee e-mail ("PBCUM 16th Exco"), which says to unzip to a drive
-root and open `index.htm`. The society's motto on the home page is 扎实为经，回馈为纬 ("Solidity is the warp,
-feedback the weft"). The last-updated date on the home page is 18-1-2004.
+The archive arrived as a zip attached to a 2004 committee e-mail ("PBCUM 16th Exco"), which says to unzip to a drive root and open `index.htm`.
+
+The society's motto on the home page is 扎实为经，回馈为纬 ("Solidity is the warp, feedback the weft"). The last-updated date on the home page is 18-1-2004.
 
 View the original AI Studio app: https://ai.studio/apps/9aadfb13-edc8-489c-9410-4960514c5bd1
